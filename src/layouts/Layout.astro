@@ -1,0 +1,45 @@
+---
+import '../styles/global.css';
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="dark">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Software Engineer Portfolio" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body class="min-h-screen bg-slate-950 text-slate-50 selection:bg-indigo-500/30">
+		<div class="fixed inset-0 -z-10 h-full w-full bg-slate-950"><div class="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div></div>
+		
+		<header class="sticky top-0 z-50 w-full border-b border-white/10 bg-slate-950/80 backdrop-blur-md">
+			<div class="container mx-auto px-6 h-16 flex items-center justify-between">
+				<a href="/" class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-cyan-400">
+					Portfolio
+				</a>
+				<nav class="hidden md:flex gap-8 text-sm font-medium">
+					<a href="#about" class="text-slate-300 hover:text-white transition-colors">About</a>
+					<a href="#experience" class="text-slate-300 hover:text-white transition-colors">Experience</a>
+					<a href="#projects" class="text-slate-300 hover:text-white transition-colors">Projects</a>
+				</nav>
+			</div>
+		</header>
+
+		<main class="container mx-auto px-6 pt-24 pb-12">
+			<slot />
+		</main>
+
+		<footer class="border-t border-white/10 py-12 text-center text-sm text-slate-400">
+			<p>© {new Date().getFullYear()} Software Engineer. Built with Astro & Tailwind.</p>
+		</footer>
+	</body>
+</html>
